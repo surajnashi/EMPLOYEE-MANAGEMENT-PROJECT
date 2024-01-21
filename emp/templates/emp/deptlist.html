@@ -1,0 +1,30 @@
+{% extends 'emp/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {% block body %}
+    <h3>Department Name</h3>
+    {% for dept in deptlist %}
+    <div>
+        <table>
+            <tr>
+                <td style="font-size: large;"><b>1. {{ dept.dept_name }}</b></td>
+                <td><a href="{% url 'emp:delete_dept' dept_id=dept.id %}">Delete</a></td>
+                <td><a href="{% url 'emp:update_dept' dept_id=dept.id %}">Edit</a></td>
+            </tr>
+        </table>
+
+    </div>
+    {% endfor %}
+
+    {% endblock %}
+</body>
+
+</html>

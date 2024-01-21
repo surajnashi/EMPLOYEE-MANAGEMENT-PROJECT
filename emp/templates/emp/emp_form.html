@@ -1,0 +1,55 @@
+{% extends 'emp/base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+{% block body %}
+
+<div class="row">
+    <div class="col-md-3 offset-md-1">
+        <h1>Add Employee</h1>
+        <form method="POST" action="">
+    
+            {% csrf_token %}
+            
+            <label><b>Employee ID: </b></label><br>
+            {{ emp_form.emp_id }}
+            <br>
+            <label><b>Employee Name: </b></label><br>
+            {{ emp_form.emp_name }}
+            <br>
+            <label><b>Employee Email: </b></label><br>
+            {{ emp_form.emp_email }}
+            <br>
+            <label><b>Employee Address: </b></label><br>
+            {{ emp_form.emp_address }}
+            <br>
+            <label><b>Hiring Date: </b></label><br>
+            {{ emp_form.hiring_date }}
+            <br>
+            <label><b>Employee Salary: </b></label><br>
+            {{ emp_form.salary }}
+            <br>
+            <label><b>Employee Designation: </b></label><br>
+            {{ emp_form.designation }}
+            <br>
+            <br>
+            <label><b>Employee Reporting Manager: </b></label><br>
+            {{ emp_form.reporting_manager }}
+            <br>
+            <button type="submit">
+                Save
+            </button>
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}
+</body>
+</html>

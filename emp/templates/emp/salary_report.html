@@ -1,0 +1,39 @@
+{% extends 'emp/base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Salary Report</title>
+</head>
+<body>
+
+{% block body %}
+    <form method="post" action="{% url 'emp:salary_report' %}">
+        {% csrf_token %}
+        <label for="start_date">Start Date:</label>
+        <input type="date" name="start_date" required>
+        <label for="end_date">End Date:</label>
+        <input type="date" name="end_date" required>
+        <button type="submit">Generate Report</button>
+    </form>
+
+    {% if start_date and end_date %}
+        <h2>Department-wise Salary Report for {{ start_date }} to {{ end_date }}</h2>
+        <table border="1">
+            <tr>
+                <th>Department</th>
+                <th>Total Salary Cost</th>
+            </tr>
+            {% for department_cost in total_department_costs %}
+                <tr>
+                    <td>{{ department_cost.dept__dept_name }}</td>
+                    <td>{{ department_cost.total_cost }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+{% endblock %}
+</body>
+</html>

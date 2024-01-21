@@ -1,0 +1,42 @@
+{% extends 'emp/base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+{% block body %}
+
+<div class="row">
+    <div class="col-md-3 offset-md-1">
+        <h1>Add Department</h1>
+        <form method="POST" action="">
+    
+            {% csrf_token %}
+            <label><b>Employee Name: </b></label><br>
+            {{ dept_form.emp }}
+            <br>
+            <label><b>Department ID: </b></label><br>
+            {{ dept_form.dept_id }}
+            <br>
+            <label><b>Department Name: </b></label><br>
+            {{ dept_form.dept_name }}
+            <br>
+            <label><b>Department Floor: </b></label><br>
+            {{ dept_form.dept_floor }}
+            <br>
+           
+            <button type="submit">
+                Save
+            </button>
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}
+</body>
+</html>
